@@ -31,6 +31,12 @@ term_handler() {
 	exit 143;
 }
 
+echo "---Copying Home Configuration---"
+cp --recursive "${HOME_CONFIG_DIR}" /root
+
+echo "---Starting SSH Server---"
+service ssh start
+
 trap 'kill ${!}; term_handler' SIGTERM
 su ${USER} -c "/opt/scripts/start-server.sh" &
 killpid="$!"
