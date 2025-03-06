@@ -32,7 +32,7 @@ term_handler() {
 }
 
 echo "---Copying Home Configuration---"
-cp --recursive "${HOME_CONFIG_DIR}/*" /root/
+cp --recursive "${HOME_CONFIG_DIR}/." /root/
 
 echo "---Starting SSH Server---"
 service ssh start
